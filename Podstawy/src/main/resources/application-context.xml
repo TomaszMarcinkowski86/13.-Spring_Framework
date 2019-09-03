@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:c="http://www.springframework.org/schema/c"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!-- każde odwołanie się do prototype tworzy nam nowy objekt singleton jest domyślnie i wtedy mamy jeden objekt-->
+
+    <bean id="someBean" class="pl.sda.spring_xml.bean.SomeBean" scope="prototype">
+        <property name="name" value="test"/>
+    </bean>
+
+    <!--
+
+     <bean id="someBean2" class="pl.sda.spring_xml.bean.SomeBean">
+           <constructor-arg name="name" value="test123"/>
+       </bean>
+
+       <bean id="someBean3" class="pl.sda.spring_xml.bean.SomeBean">
+           <constructor-arg index="0" value="test452"/>
+       </bean>
+
+       <bean id="someBean4" class="pl.sda.spring_xml.bean.SomeBean2">
+           <constructor-arg index="0" value="tomek" />
+           <constructor-arg index="1" value="18"/>
+       </bean>
+       -->
+
+    <bean id="someBean3" class="pl.sda.spring_xml.bean.SomeBean3">
+        <constructor-arg ref="someBean"/>
+    </bean>
+
+    <bean id="someBeanOld" class="pl.sda.spring_xml.bean.SomeBean2">
+        <property name="name" value="property test"/>
+        <property name="age"  value="1"/>
+    </bean>
+    <bean id="someBeanOld2" class="pl.sda.spring_xml.bean.SomeBean2">
+        <constructor-arg name="name" value="constructor test"/>
+        <constructor-arg name="age"  value="1"/>
+    </bean>
+
+<!--     to p: oznacza property-->
+<!--    c: będzie oznaczać constructr-->
+    <bean id="someBean4" class="pl.sda.spring_xml.bean.SomeBean2"
+          p:name="Natalia"
+          p:age="17"/>
+
+    <bean id="beanListMy" class="pl.sda.spring_xml.bean.BeanListMy">
+        <property name="titles">
+            <list>
+                <value> Value 1</value>
+                <value> Value 2</value>
+            </list>
+        </property>
+    </bean>
+
+    <bean id="localDate" class="java.time.LocalDate" factory-method="now"/>
+
+    <bean id="myPizza" class="pl.sda.spring_xml.factoryMethod.Pizza" factory-method="getPizza"/>
+
+
+    <bean id="factory" class="pl.sda.spring_xml.factory.PizzaFactory"/>
+    <bean id="otherPizza" class="pl.sda.spring_xml.factory.OtherPizza"
+          factory-bean="factory"
+          factory-method="getInstance"/>
+
+</beans>
