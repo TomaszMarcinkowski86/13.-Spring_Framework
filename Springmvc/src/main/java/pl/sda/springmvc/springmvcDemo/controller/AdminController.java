@@ -17,6 +17,7 @@ import pl.sda.springmvc.springmvcDemo.service.ProductService;
 @Controller
 @RequestMapping("/admin")
 public class AdminController {
+
     private final ProductService productService;
     private final Validator newProductValidator;
 

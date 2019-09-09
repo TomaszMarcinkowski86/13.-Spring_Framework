@@ -16,7 +16,7 @@
                 <td th:text="${product.name}"></td>
                 <td th:text="${product.price}"></td>
                 <td>
-                    <button><a th:href="@{'/shopcart/addproduct/' + ${product.id}}">ADD</a></button>
+                    <button><a th:href="@{'/shopcart/addproduct/' + ${product.id}}"th:inline="text">[[#{menu.buttonAdd}]]</a></button>
                 </td>
             </tr>
         </table>

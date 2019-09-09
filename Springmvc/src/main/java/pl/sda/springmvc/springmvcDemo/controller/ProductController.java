@@ -10,9 +10,6 @@ import pl.sda.springmvc.springmvcDemo.dto.ProductDTO;
 import pl.sda.springmvc.springmvcDemo.exception.NotFoundProductException;
 import pl.sda.springmvc.springmvcDemo.service.ProductService;
 
-import java.math.BigDecimal;
-import java.util.Arrays;
-import java.util.List;
 
 @Controller
 @RequestMapping("/products")

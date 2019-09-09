@@ -15,14 +15,14 @@
         <div class="container">
             Login:
             <form th:action="@{/login}" method="post" th:object="${loginform}">
-                <label>Name</label>
+                <label><a th:inline="text">[[#{menu.LoginName}]]</a></label>
                 <input type="text" th:field="*{login}" />
                 <br />
-                <label>Password</label>
+                <label><a th:inline="text">[[#{menu.password}]]</a></label>
                 <input th:type="password" th:field="*{password}" />
                 <br />
                 <div th:if="${#fields.hasErrors('login')}" th:errors="*{login}">Price Error</div>
-                <button th:type="submit">Login</button>
+                <button th:type="submit" th:inline="text">[[#{menu.LoginButton}]]</button>
             </form>
         </div>
     </div>
